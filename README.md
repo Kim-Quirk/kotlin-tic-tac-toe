@@ -4,7 +4,7 @@ I created a Tic-Tac-Toe game. The game is simple and just runs in the console. T
 
 I designed this software in order to gain a better understanding of the Kotlin language. I wanted a fun goal as I was learning Kotlin. This game did the trick.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/7imm9mJa4I0)
 
 # Development Environment
 

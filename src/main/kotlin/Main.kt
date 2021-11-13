@@ -66,15 +66,17 @@ fun testWin(answers: Array<String>): Boolean {
         win = true
         println("I win! Better luck next time.")
     }
-    var count = 0
-    for (i in 0..8) {
-        if (answers[i] != " ") {
-            count += 1
+    if (!win) {
+        var count = 0
+        for (i in 0..8) {
+            if (answers[i] != " ") {
+                count += 1
+            }
         }
-    }
-    if (count == 9) {
-        win = true
-        println("It's a tie. No one wins!")
+        if (count == 9) {
+            win = true
+            println("It's a tie. No one wins!")
+        }
     }
     return win
 }

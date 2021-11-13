@@ -1,12 +1,15 @@
 fun main() {
     println("Welcome to Tic-Tac-Toe! You're X's and I'm O's!")
 
+//    Create blank place holders for our answers
     var answers = arrayOf(" ", " ", " ", " ", " ", " ", " ", " ", " ")
     createBoard(answers)
 
+//    While the game isn't over... play the game
     var end = false
-//    var count = 0
     while (!end) {
+//        The main game loop. Get the user input, convert it and store it in the array, update the board to display,
+//        test if we've won, have the computer go, update answers, update the board, test if we've won.
         val input = getInput()
         answers = updateAnswers(answers, input)
         createBoard(answers)
@@ -18,9 +21,11 @@ fun main() {
             end = testWin(answers)
         }
     }
+//    Once the game is over, ask if we want to play again
     playAgain()
 }
 
+// A function to get user input and restart the main function to play again.
 fun playAgain() {
     var done = false
     var again = "EEE"
@@ -38,6 +43,7 @@ fun playAgain() {
     }
 }
 
+//Tests all possible win conditions to see if someone has won tic-tac-toe.
 fun testWin(answers: Array<String>): Boolean {
     var win = false
     if (
@@ -81,6 +87,7 @@ fun testWin(answers: Array<String>): Boolean {
     return win
 }
 
+// Creates and displays the game board.
 fun createBoard(answers: Array<String>) {
     println("   A   B   C ")
     println("1  "+ answers[0] +" | "+ answers[1] +" | "+ answers[2] +" ")
@@ -90,6 +97,7 @@ fun createBoard(answers: Array<String>) {
     println("3  "+ answers[6] +" | "+ answers[7] +" | "+ answers[8] +" ")
 }
 
+//Converts the string input answers into the appropriate answer array spot.
 fun updateAnswers(answers: Array<String>, input: String): Array<String> {
     var x = (input[0].uppercaseChar().code - 65)
     if (input[1].toString() == "2") {
@@ -106,6 +114,7 @@ fun updateAnswers(answers: Array<String>, input: String): Array<String> {
     return answers
 }
 
+//The computer's turn. Basically the computer looks for an empty spot and randomly places an O down.
 fun enemyMoves(answers: Array<String>): Array<String> {
     var error = true
     var x = 0
@@ -119,6 +128,7 @@ fun enemyMoves(answers: Array<String>): Array<String> {
     return answers
 }
 
+//Gets user input. Loops through until a valid input is given.
 fun getInput(): String {
     print("Where would you like to place your \"X\"? Please enter a letter followed by a number. ")
     var stringInput = readLine()!!
